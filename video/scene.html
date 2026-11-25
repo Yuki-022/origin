@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f172a; --navy2:#111c36; --cyan:#06b6d4; --blue:#2563eb; --sky:#dbeafe;
+    --white:#ffffff; --muted:#94a3b8; --amber:#f59e0b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1920px;overflow:hidden;background:var(--navy)}
+  body{font-family:"Noto Sans JP",sans-serif;color:var(--white);position:relative}
+  .layer{position:absolute;inset:0}
+  .scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0}
+  .en{font-family:"Inter",sans-serif;letter-spacing:.18em;font-weight:700}
+  #bg{background:radial-gradient(1200px 1200px at 50% 40%, #13254a 0%, var(--navy) 60%)}
+  .glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
+  #g1{width:700px;height:700px;background:var(--cyan)}
+  #g2{width:600px;height:600px;background:var(--blue)}
+  #brand{position:absolute;top:110px;left:0;right:0;text-align:center;font-size:30px;color:rgba(255,255,255,.75);letter-spacing:.4em}
+  #progress{position:absolute;left:120px;right:120px;bottom:150px;height:6px;border-radius:3px;background:rgba(255,255,255,.12);overflow:hidden}
+  #progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--blue))}
+  .big{font-weight:900;font-size:150px;line-height:1.2;letter-spacing:.02em}
+  .mid{font-weight:900;font-size:112px;line-height:1.25}
+  .lead{font-weight:500;font-size:50px;line-height:1.6;color:#e2e8f0;text-align:center}
+  .tag{font-size:34px;color:var(--cyan);margin-bottom:40px}
+  .line{display:block;overflow:hidden}
+  .line > span{display:inline-block}
+  .accent{color:var(--cyan)}
+  .stepno{font-family:Inter;font-weight:900;font-size:40px;letter-spacing:.3em;color:var(--cyan);margin-bottom:24px}
+  .stepttl{font-weight:900;font-size:150px;margin-bottom:60px}
+  .icon{width:560px;height:560px;margin-bottom:70px;position:relative}
+  .card{background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.12);border-radius:36px;padding:44px 56px;width:880px}
+  .card p{font-size:48px;font-weight:700;line-height:1.6;text-align:center}
+  .card p.sub{font-size:38px;font-weight:500;color:var(--muted);margin-top:14px}
+  .dots{display:flex;gap:46px;margin-top:90px}
+  .dot{width:210px;height:210px;border-radius:50%;border:3px solid var(--cyan);display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .dot b{font-family:Inter;font-size:64px;font-weight:900;color:var(--cyan)}
+  .dot span{font-size:34px;font-weight:700}
+  .recap{display:flex;align-items:center;gap:28px;margin-bottom:110px}
+  .rc{width:230px;height:230px;border-radius:44px;background:rgba(6,182,212,.14);border:3px solid rgba(6,182,212,.6);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+  .rc span{font-size:46px;font-weight:900}
+  .arrow{font-size:60px;color:var(--cyan);font-weight:900}
+  .logo{font-family:Inter;font-weight:900;font-size:150px;letter-spacing:.06em}
+  .logo .o{color:var(--cyan)}
+  .cta{margin-top:90px;padding:34px 70px;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--blue));font-size:46px;font-weight:900}
+</style>
+</head>
+<body>
+<div class="layer" id="bg"></div>
+<div class="glow" id="g1"></div>
+<div class="glow" id="g2"></div>
+<svg class="layer" id="particles" width="1080" height="1920"></svg>
+
+<!-- S1 hook -->
+<div class="scene" id="s1">
+  <div class="tag en" id="s1tag">MEN'S SKINCARE</div>
+  <div class="big"><span class="line"><span id="s1a">清潔感は、</span></span></div>
+  <div class="big"><span class="line"><span id="s1b" class="accent">つくれる。</span></span></div>
+</div>
+
+<!-- S2 intro -->
+<div class="scene" id="s2">
+  <div class="lead" id="s2a">今日から始める</div>
+  <div class="mid" id="s2b">基本の<span class="accent">3</span>ステップ</div>
+  <div class="dots">
+    <div class="dot" id="d1"><b>01</b><span>洗う</span></div>
+    <div class="dot" id="d2"><b>02</b><span>潤す</span></div>
+    <div class="dot" id="d3"><b>03</b><span>守る</span></div>
+  </div>
+</div>
+
+<!-- S3 wash -->
+<div class="scene" id="s3">
+  <div class="stepno">STEP 01</div>
+  <div class="stepttl" id="s3t">洗顔</div>
+  <svg class="icon" id="washIcon" viewBox="0 0 560 560"></svg>
+  <div class="card" id="s3c">
+    <p>たっぷりの泡で、<br><span class="accent">こすらず包み洗い</span></p>
+    <p class="sub">すすぎは熱すぎない、ぬるま湯で</p>
+  </div>
+</div>
+
+<!-- S4 moisture -->
+<div class="scene" id="s4">
+  <div class="stepno">STEP 02</div>
+  <div class="stepttl" id="s4t">保湿</div>
+  <svg class="icon" id="dropIcon" viewBox="0 0 560 560"></svg>
+  <div class="card" id="s4c">
+    <p>化粧水でうるおいを与え、<br><span class="accent">乳液でフタをする</span></p>
+    <p class="sub">洗顔後は、すぐに保湿が鉄則</p>
+  </div>
+</div>
+
+<!-- S5 UV -->
+<div class="scene" id="s5">
+  <div class="stepno">STEP 03</div>
+  <div class="stepttl" id="s5t">UVケア</div>
+  <svg class="icon" id="sunIcon" viewBox="0 0 560 560"></svg>
+  <div class="card" id="s5c">
+    <p>日焼け止めは<span class="accent">毎朝の習慣</span>に</p>
+    <p class="sub">曇りの日も、紫外線は届いている</p>
+  </div>
+</div>
+
+<!-- S6 recap -->
+<div class="scene" id="s6">
+  <div class="recap">
+    <div class="rc" id="r1"><span>洗う</span></div>
+    <div class="arrow" id="a1">›</div>
+    <div class="rc" id="r2"><span>潤す</span></div>
+    <div class="arrow" id="a2">›</div>
+    <div class="rc" id="r3"><span>守る</span></div>
+  </div>
+  <div class="lead" id="s6a" style="font-size:58px;font-weight:700">毎日の積み重ねが、</div>
+  <div class="mid" id="s6b">印象を<span class="accent">変える。</span></div>
+</div>
+
+<!-- S7 end -->
+<div class="scene" id="s7">
+  <div class="logo" id="logo">MEN<span class="o">O</span>LOGY</div>
+  <div class="lead" id="s7a" style="margin-top:30px;font-size:42px;color:var(--muted)">20代メンズのための<br>美容・ファッション情報コミュニティ</div>
+  <div class="cta" id="cta">スキンケア記事をチェック</div>
+</div>
+
+<div id="brand" class="en">MENOLOGY</div>
+<div id="progress"><i id="bar"></i></div>
+
+<script>
+const DUR = 30;
+const $ = id => document.getElementById(id);
+const clamp = (x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const prog = (t,a,b)=>clamp((t-a)/(b-a));
+const eOut = x=>1-Math.pow(1-x,3);
+const eInOut = x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eBack = x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+// deterministic pseudo-random
+function rnd(i){const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)}
+
+const scenes = [
+  ['s1',0,3.3],['s2',3.3,6.3],['s3',6.3,12.3],['s4',12.3,18.3],['s5',18.3,24.3],['s6',24.3,27.3],['s7',27.3,30.01]
+];
+function sceneAlpha(t,a,b){
+  const fi = a===0 ? 1 : eOut(prog(t,a,a+.45));
+  const fo = b>=30 ? 1 : 1-eInOut(prog(t,b-.35,b));
+  return {v:Math.min(fi,fo), fi, fo};
+}
+function rise(el,t,a,d=.6,dist=80){
+  const p=eOut(prog(t,a,a+d));
+  el.style.opacity=p; el.style.transform=`translateY(${(1-p)*dist}px)`;
+}
+function reveal(el,t,a,d=.7){ // line mask reveal
+  const p=eOut(prog(t,a,a+d));
+  el.style.transform=`translateY(${(1-p)*110}%)`;
+}
+function pop(el,t,a,d=.55){
+  const p=prog(t,a,a+d);
+  const s=p===0?0:eBack(p);
+  el.style.opacity=clamp(p*2); el.style.transform=`scale(${.6+.4*s})`;
+}
+
+// ---- icon builders ----
+function washSVG(lt){
+  let s=`<defs><radialGradient id="fg" cx="40%" cy="35%"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#cfefff"/></radialGradient></defs>`;
+  // face silhouette
+  s+=`<ellipse cx="280" cy="300" rx="150" ry="190" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="6"/>`;
+  // foam blobs build up
+  const n=26;
+  for(let i=0;i<n;i++){
+    const ang=rnd(i)*Math.PI*2, rr=40+rnd(i+50)*120;
+    const cx=280+Math.cos(ang)*rr*0.9, cy=310+Math.sin(ang)*rr*1.1;
+    const appear=eBack(clamp((lt-0.5-i*0.06)/0.4));
+    const wob=Math.sin(lt*3+i)*4;
+    const r=(22+rnd(i+9)*34)*appear;
+    if(r>0) s+=`<circle cx="${cx+wob}" cy="${cy}" r="${r}" fill="url(#fg)" opacity=".92"/>`;
+  }
+  // rising bubbles
+  for(let i=0;i<14;i++){
+    const sp=60+rnd(i+200)*60, ph=rnd(i+300)*10;
+    const y=520-((lt*sp+ph*50)%520);
+    const x=80+rnd(i+400)*400+Math.sin(lt*2+i)*14;
+    const r=6+rnd(i+500)*14;
+    s+=`<circle cx="${x}" cy="${y}" r="${r}" fill="none" stroke="#67e8f9" stroke-width="3" opacity="${clamp(lt-0.3)*0.8}"/>`;
+  }
+  // hands circling (gentle arc)
+  const a=lt*2.2;
+  s+=`<path d="M ${280+Math.cos(a)*170} ${320+Math.sin(a)*60} q 30 -40 70 -10" stroke="#06b6d4" stroke-width="10" fill="none" stroke-linecap="round" opacity="${clamp(lt-1)}"/>`;
+  return s;
+}
+function dropSVG(lt){
+  let s=`<defs><linearGradient id="dg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#67e8f9"/><stop offset="1" stop-color="#2563eb"/></linearGradient></defs>`;
+  // bottle
+  s+=`<rect x="390" y="120" width="110" height="200" rx="24" fill="rgba(219,234,254,.14)" stroke="rgba(219,234,254,.6)" stroke-width="5"/>`;
+  s+=`<rect x="420" y="80" width="50" height="44" rx="8" fill="rgba(219,234,254,.6)"/>`;
+  s+=`<rect x="405" y="200" width="80" height="100" rx="14" fill="rgba(6,182,212,.45)"/>`;
+  // drop falling cycles
+  const cyc=1.6;
+  for(let k=0;k<3;k++){
+    const lp=((lt-0.4-k*cyc));
+    if(lp<0||lp>cyc) continue;
+    const fall=clamp(lp/0.7);
+    const y=140+eInOut(fall)*270;
+    if(fall<1){
+      const sc=0.6+0.4*clamp(lp/0.3);
+      s+=`<g transform="translate(250 ${y}) scale(${sc})"><path d="M0 -70 C 30 -30 50 0 50 25 A50 50 0 0 1 -50 25 C -50 0 -30 -30 0 -70 Z" fill="url(#dg)"/><ellipse cx="-16" cy="16" rx="10" ry="18" fill="#fff" opacity=".6"/></g>`;
+    }
+    // ripples
+    const rp=clamp((lp-0.7)/0.9);
+    if(rp>0) for(let j=0;j<3;j++){
+      const q=clamp(rp-j*0.18);
+      if(q>0) s+=`<ellipse cx="250" cy="450" rx="${40+q*200}" ry="${10+q*50}" fill="none" stroke="#67e8f9" stroke-width="${5*(1-q)+1}" opacity="${1-q}"/>`;
+    }
+  }
+  // skin surface
+  s+=`<path d="M40 470 Q 280 430 520 470" stroke="rgba(255,255,255,.35)" stroke-width="6" fill="none"/>`;
+  // lock (lid) appears later
+  const lk=eBack(clamp((lt-3.6)/0.5));
+  if(lk>0) s+=`<g transform="translate(250 450) scale(${lk})"><rect x="-140" y="-70" width="280" height="22" rx="11" fill="#dbeafe" opacity=".85"/></g>`;
+  return s;
+}
+function sunSVG(lt){
+  let s='';
+  const cx=280,cy=260, rot=lt*25;
+  const ap=eBack(clamp((lt-0.3)/0.6));
+  s+=`<g transform="translate(${cx} ${cy}) rotate(${rot}) scale(${ap})">`;
+  for(let i=0;i<12;i++){
+    const len=60+Math.sin(lt*4+i)*10;
+    s+=`<rect x="-8" y="${-150-len}" width="16" height="${len}" rx="8" fill="#f59e0b" transform="rotate(${i*30})"/>`;
+  }
+  s+=`<circle r="110" fill="#fbbf24"/></g>`;
+  // UV rays down to shield
+  for(let i=0;i<5;i++){
+    const p=((lt*1.2+i*0.2)%1);
+    const x0=160+i*60;
+    if(lt>0.8) s+=`<line x1="${x0}" y1="${380+p*60}" x2="${x0-10}" y2="${400+p*60}" stroke="#fde68a" stroke-width="6" stroke-linecap="round" opacity="${(1-p)*0.9}"/>`;
+  }
+  // shield
+  const sh=eBack(clamp((lt-1.6)/0.6));
+  if(sh>0) s+=`<g transform="translate(${cx} 470) scale(${sh})"><path d="M-170 -10 Q 0 -70 170 -10" stroke="#06b6d4" stroke-width="16" fill="none" stroke-linecap="round"/><text x="0" y="60" text-anchor="middle" font-family="Inter" font-weight="900" font-size="54" fill="#06b6d4" letter-spacing="6">UV CUT</text></g>`;
+  return s;
+}
+
+// background particles (floating soft orbs)
+function particles(t){
+  let s='';
+  for(let i=0;i<22;i++){
+    const sp=20+rnd(i)*40;
+    const y=1920-((t*sp+rnd(i+1)*1920)%2100)+90;
+    const x=rnd(i+2)*1080+Math.sin(t*.6+i)*30;
+    const r=3+rnd(i+3)*7;
+    s+=`<circle cx="${x}" cy="${y}" r="${r}" fill="#67e8f9" opacity="${.15+rnd(i+4)*.25}"/>`;
+  }
+  return s;
+}
+
+function render(t){
+  // background motion
+  $('g1').style.transform=`translate(${-100+Math.sin(t*.35)*160}px, ${200+Math.cos(t*.3)*140}px)`;
+  $('g2').style.transform=`translate(${520+Math.cos(t*.28)*160}px, ${1150+Math.sin(t*.33)*160}px)`;
+  $('particles').innerHTML=particles(t);
+  $('bar').style.width=(t/DUR*100)+'%';
+  $('brand').style.opacity = t<27.3 ? eOut(prog(t,.2,1)) * .9 : (1-prog(t,27.3,27.7))*.9;
+
+  for(const [id,a,b] of scenes){
+    const el=$(id); const {v}=sceneAlpha(t,a,b);
+    el.style.opacity=(t>=a&&t<b)?v:0;
+    el.style.transform=`scale(${1+ (t-a)*0.006})`;
+  }
+  // S1
+  rise($('s1tag'),t,.15,.6,30); reveal($('s1a'),t,.35); reveal($('s1b'),t,.95);
+  // S2
+  rise($('s2a'),t,3.55,.5,40); rise($('s2b'),t,3.8,.6,60);
+  pop($('d1'),t,4.4); pop($('d2'),t,4.65); pop($('d3'),t,4.9);
+  // S3
+  const l3=t-6.3; rise($('s3t'),t,6.5,.6,60); rise($('s3c'),t,7.3,.6,60);
+  if(t>=6.3&&t<12.3) $('washIcon').innerHTML=washSVG(l3);
+  // S4
+  const l4=t-12.3; rise($('s4t'),t,12.5,.6,60); rise($('s4c'),t,13.3,.6,60);
+  if(t>=12.3&&t<18.3) $('dropIcon').innerHTML=dropSVG(l4);
+  // S5
+  const l5=t-18.3; rise($('s5t'),t,18.5,.6,60); rise($('s5c'),t,19.3,.6,60);
+  if(t>=18.3&&t<24.3) $('sunIcon').innerHTML=sunSVG(l5);
+  // S6
+  pop($('r1'),t,24.5); rise($('a1'),t,24.75,.3,0); pop($('r2'),t,24.85); rise($('a2'),t,25.1,.3,0); pop($('r3'),t,25.2);
+  rise($('s6a'),t,25.6,.6,50); rise($('s6b'),t,25.9,.6,60);
+  // S7
+  const lg=eOut(prog(t,27.4,28.2));
+  $('logo').style.opacity=lg; $('logo').style.letterSpacing=(0.3-0.24*lg)+'em';
+  rise($('s7a'),t,28.0,.6,40); pop($('cta'),t,28.5,.6);
+  const pulse = t>29.1 ? 1+Math.sin((t-29.1)*7)*0.025 : null;
+  if(pulse) $('cta').style.transform=`scale(${pulse})`;
+}
+window.render=render;
+render(0);
+</script>
+</body>
+</html>
