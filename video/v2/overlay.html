@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0f172a;--cyan:#06b6d4;--blue:#2563eb}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1920px;overflow:hidden;background:transparent}
+  body{font-family:"Noto Sans JP",sans-serif;color:#fff;position:relative}
+  .abs{position:absolute}
+  #topg{left:0;right:0;top:0;height:360px;background:linear-gradient(rgba(15,23,42,.55),rgba(15,23,42,0))}
+  #botg{left:0;right:0;bottom:0;height:1000px;background:linear-gradient(rgba(15,23,42,0),rgba(15,23,42,.55) 45%,rgba(15,23,42,.9))}
+  #brand{top:110px;left:0;right:0;text-align:center;font-family:Inter;font-weight:800;font-size:30px;letter-spacing:.42em;color:rgba(255,255,255,.9);text-shadow:0 2px 12px rgba(0,0,0,.35)}
+  #progress{left:120px;right:120px;bottom:130px;height:6px;border-radius:3px;background:rgba(255,255,255,.22);overflow:hidden}
+  #bar{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--blue))}
+  .sh{text-shadow:0 4px 24px rgba(0,0,0,.45)}
+  /* step header */
+  .step{left:90px;top:1180px;display:flex;align-items:center;gap:26px;opacity:0}
+  .pill{font-family:Inter;font-weight:900;font-size:32px;letter-spacing:.2em;background:var(--cyan);color:#06222b;padding:12px 26px;border-radius:999px}
+  .stepname{font-weight:900;font-size:64px}
+  /* captions */
+  .cap{left:90px;right:90px;top:1300px;opacity:0}
+  .cap .l1{font-weight:900;font-size:84px;line-height:1.3}
+  .cap .l2{font-weight:500;font-size:40px;line-height:1.5;color:#cbd5e1;margin-top:22px}
+  .acc{color:#22d3ee}
+  .bar-acc{display:block;width:90px;height:8px;border-radius:4px;background:var(--cyan);margin-bottom:34px}
+  /* hook */
+  #hook{left:0;right:0;top:1180px;text-align:center}
+  #hook .tag{font-family:Inter;font-weight:800;font-size:34px;letter-spacing:.3em;color:#22d3ee;margin-bottom:26px;opacity:0}
+  .mask{overflow:hidden;display:block}
+  .mask>span{display:inline-block;transform:translateY(110%)}
+  #hook .big{font-weight:900;font-size:150px;line-height:1.18}
+  /* message */
+  #msg{left:0;right:0;top:1250px;text-align:center}
+  #msg .a{font-weight:700;font-size:62px;opacity:0}
+  #msg .b{font-weight:900;font-size:120px;margin-top:10px;opacity:0}
+  /* end card */
+  #end{inset:0;background:rgba(15,23,42,0);display:flex;flex-direction:column;align-items:center;justify-content:center}
+  #logo{font-family:Inter;font-weight:900;font-size:150px;opacity:0}
+  #logo .o{color:var(--cyan)}
+  #tagline{font-size:42px;font-weight:500;color:#cbd5e1;text-align:center;line-height:1.6;margin-top:30px;opacity:0}
+  #cta{margin-top:80px;padding:34px 72px;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--blue));font-size:46px;font-weight:900;opacity:0}
+  #credit{bottom:60px;left:0;right:0;text-align:center;font-family:Inter;font-size:20px;color:rgba(255,255,255,.55);opacity:0}
+  #flash{inset:0;background:#fff;opacity:0}
+</style>
+</head>
+<body>
+<div class="abs" id="topg"></div>
+<div class="abs" id="botg"></div>
+
+<div class="abs" id="hook">
+  <div class="tag" id="htag">MEN'S SKINCARE</div>
+  <div class="big sh"><span class="mask"><span id="h1">清潔感は、</span></span></div>
+  <div class="big sh"><span class="mask"><span id="h2" class="acc">つくれる。</span></span></div>
+</div>
+
+<div class="abs step" id="st1"><span class="pill">STEP 01</span><span class="stepname sh">洗う</span></div>
+<div class="abs step" id="st2"><span class="pill">STEP 02</span><span class="stepname sh">潤す</span></div>
+<div class="abs step" id="st3"><span class="pill">STEP 03</span><span class="stepname sh">守る</span></div>
+<div class="abs step" id="st4"><span class="pill">PLUS α</span><span class="stepname sh">磨く</span></div>
+
+<div class="abs cap" id="c1"><div class="l1 sh">泡で、<span class="acc">こすらず</span><br>包み洗い。</div><div class="l2">すすぎは熱すぎない、ぬるま湯で</div></div>
+<div class="abs cap" id="c2"><div class="l1 sh">タオルは<br><span class="acc">押さえるように。</span></div><div class="l2">ゴシゴシ拭きは肌への負担に</div></div>
+<div class="abs cap" id="c3"><div class="l1 sh">化粧水で、<br><span class="acc">うるおい</span>チャージ。</div><div class="l2">洗顔後は、すぐに保湿</div></div>
+<div class="abs cap" id="c4"><div class="l1 sh">乳液で、<br><span class="acc">フタをする。</span></div><div class="l2">与えたうるおいを逃がさない</div></div>
+<div class="abs cap" id="c5"><div class="l1 sh">日焼け止めは<br><span class="acc">毎朝の習慣</span>に。</div><div class="l2">曇りの日も、紫外線は届いている</div></div>
+<div class="abs cap" id="c6"><div class="l1 sh">ときには<br><span class="acc">パック</span>でご褒美。</div><div class="l2">いつものケアにプラスα</div></div>
+<div class="abs cap" id="c7"><div class="l1 sh">眉を整えて、<br><span class="acc">印象アップデート。</span></div><div class="l2">顔の印象は、眉で決まる</div></div>
+
+<div class="abs" id="msg">
+  <div class="a sh" id="m1">毎日の積み重ねが、</div>
+  <div class="b sh" id="m2">印象を<span class="acc">変える。</span></div>
+</div>
+
+<div class="abs" id="end">
+  <div id="logo">MEN<span class="o">O</span>LOGY</div>
+  <div id="tagline">20代メンズのための<br>美容・ファッション情報コミュニティ</div>
+  <div id="cta">スキンケア記事をチェック</div>
+</div>
+<div class="abs" id="credit">Footage: Ron Lach / Pexels</div>
+
+<div class="abs" id="brand">MENOLOGY</div>
+<div class="abs" id="progress"><div id="bar"></div></div>
+<div class="abs" id="flash"></div>
+
+<script>
+const DUR=30, $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const prog=(t,a,b)=>clamp((t-a)/(b-a));
+const eOut=x=>1-Math.pow(1-x,3);
+const eBack=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+// show element in [a,b) with rise-in and fade-out
+function win(el,t,a,b,dist=60,fin=.45,fout=.25){
+  if(t<a||t>=b){el.style.opacity=0;return}
+  const pi=eOut(prog(t,a,a+fin)), po=1-prog(t,b-fout,b);
+  el.style.opacity=Math.min(pi,po);
+  el.style.transform=`translateY(${(1-pi)*dist}px)`;
+}
+function stepWin(el,t,a,b){
+  if(t<a||t>=b){el.style.opacity=0;return}
+  const pi=eOut(prog(t,a,a+.4)), po=1-prog(t,b-.25,b);
+  el.style.opacity=Math.min(pi,po);
+  el.style.transform=`translateX(${(1-pi)*-60}px)`;
+}
+const cuts=[3,6,8.5,11,13,15,17.5,20.5,23,25,27.5];
+function render(t){
+  $('bar').style.width=(t/DUR*100)+'%';
+  // brand & gradients
+  const endP=eOut(prog(t,27.5,28.1));
+  $('brand').style.opacity=(1-endP);
+  $('botg').style.opacity= t<25 ? 1 : 1-prog(t,27.3,27.8)*0.0;
+  // hook
+  const hp=(t<3)?1:0;
+  $('hook').style.opacity = t<2.75?1:1-prog(t,2.75,3);
+  $('htag').style.opacity=eOut(prog(t,.15,.6));
+  $('h1').style.transform=`translateY(${(1-eOut(prog(t,.3,.95)))*110}%)`;
+  $('h2').style.transform=`translateY(${(1-eOut(prog(t,.85,1.5)))*110}%)`;
+  // steps
+  stepWin($('st1'),t,3.1,8.5); stepWin($('st2'),t,8.6,17.5); stepWin($('st3'),t,17.6,20.5); stepWin($('st4'),t,20.6,25);
+  // captions
+  win($('c1'),t,3.3,6); win($('c2'),t,6.15,8.5); win($('c3'),t,8.75,13); win($('c4'),t,13.15,17.5);
+  win($('c5'),t,17.75,20.5); win($('c6'),t,20.7,23); win($('c7'),t,23.15,25);
+  // message
+  const ma=eOut(prog(t,25.15,25.65)), mb=eOut(prog(t,25.5,26.1)), mo=1-prog(t,27.25,27.5);
+  $('m1').style.opacity=Math.min(ma,mo); $('m1').style.transform=`translateY(${(1-ma)*40}px)`;
+  $('m2').style.opacity=Math.min(mb,mo); $('m2').style.transform=`translateY(${(1-mb)*60}px)`;
+  $('msg').style.display=(t>=25&&t<27.5)?'block':'none';
+  // end
+  $('end').style.background=`rgba(15,23,42,${0.82*endP})`;
+  const lg=eOut(prog(t,27.65,28.4));
+  $('logo').style.opacity=lg; $('logo').style.letterSpacing=(0.3-0.24*lg)+'em';
+  const tg=eOut(prog(t,28.1,28.7));
+  $('tagline').style.opacity=tg; $('tagline').style.transform=`translateY(${(1-tg)*30}px)`;
+  const cp=prog(t,28.5,29.05); const cs=cp===0?.6:.6+.4*eBack(cp);
+  const pulse=t>29.2?Math.sin((t-29.2)*7)*0.025:0;
+  $('cta').style.opacity=clamp(cp*2); $('cta').style.transform=`scale(${cs+pulse})`;
+  $('credit').style.opacity=endP*0.9;
+  // tiny white flash on cuts
+  let f=0; for(const c of cuts){ if(t>=c&&t<c+0.12) f=Math.max(f,(1-(t-c)/0.12)*0.18); }
+  $('flash').style.opacity=f;
+}
+window.render=render; render(0);
+</script>
+</body>
+</html>
